@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://mws4nh4n6kmh"]
 
 [ext_resource type="Texture2D" uid="uid://csre2umhguyml" path="res://assets/fond.png" id="1_a2vuh"]
-[ext_resource type="PackedScene" uid="uid://bigra53mc7rkx" path="res://scenes/Player.tscn" id="2_bmctr"]
+[ext_resource type="PackedScene" uid="uid://bigra53mc7rkx" path="res://scenes/player/Player.tscn" id="2_bmctr"]
 
 [node name="LevelOne" type="Node2D"]
 
@@ -11,3 +11,4 @@ scale = Vector2(1.137037, 1.137037)
 texture = ExtResource("1_a2vuh")
 
 [node name="Player" parent="." instance=ExtResource("2_bmctr")]
+position = Vector2(482, 642)
