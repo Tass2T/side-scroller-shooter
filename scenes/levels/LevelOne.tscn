@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://mws4nh4n6kmh"]
+[gd_scene load_steps=3 format=3 uid="uid://mws4nh4n6kmh"]
+
+[ext_resource type="Texture2D" uid="uid://csre2umhguyml" path="res://assets/fond.png" id="1_a2vuh"]
+[ext_resource type="PackedScene" uid="uid://bigra53mc7rkx" path="res://scenes/Player.tscn" id="2_bmctr"]
 
 [node name="LevelOne" type="Node2D"]
+
+[node name="Fond" type="Sprite2D" parent="."]
+position = Vector2(2091, 1097)
+scale = Vector2(1.137037, 1.137037)
+texture = ExtResource("1_a2vuh")
+
+[node name="Player" parent="." instance=ExtResource("2_bmctr")]
