@@ -9,7 +9,7 @@ const SHOOT_COOLDDOWN: float = 0.2
 var canShoot: bool = true
 
 func _init() -> void:
-	bulletRessource = preload("res://scenes/player/bullet.tscn")
+	bulletRessource = preload("res://scenes/player/Bullet.tscn")
 	
 
 func shoot() -> void:

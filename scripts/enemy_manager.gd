@@ -1,8 +1,14 @@
 class_name EnemyManager extends Node
 
-var FILE_PATH: String = "res://enemies_data.json"
+const FILE_PATH: String = "res://enemies_data.json"
+const ENEMY_FILEPATH: String = "res://scenes/enemies/Enemy.tscn"
+var enemyRessource: PackedScene
+
 var level_enemy_data
 var ellapsed_time: float = 0
+	
+func _init() -> void:
+	enemyRessource = preload(ENEMY_FILEPATH)
 
 func _ready() -> void:
 	loadEnemiesData()
@@ -16,4 +22,13 @@ func loadEnemiesData() -> void:
 
 func _process(delta: float) -> void:
 	ellapsed_time += delta
+	checkForEnemySpawn()
 	
+func checkForEnemySpawn() -> void:
+	for enemy in level_enemy_data:
+		if enemy.start <= ellapsed_time:
+			var new_enemy: Enemy = enemyRessource.instantiate()
+			new_enemy.init(enemy.id)
+			add_child(new_enemy)
+			
+			
