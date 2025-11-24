@@ -26,9 +26,9 @@ func _process(delta: float) -> void:
 	
 func checkForEnemySpawn() -> void:
 	for enemy in level_enemy_data:
-		if enemy.start <= ellapsed_time:
+		if enemy.time_stamp <= ellapsed_time:
 			var new_enemy: Enemy = enemyRessource.instantiate()
-			new_enemy.init(enemy.id)
+			new_enemy.init(enemy.id, enemy.from, enemy.to, enemy.finally)
 			add_child(new_enemy)
 			
 			
