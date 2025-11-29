@@ -5,7 +5,7 @@ class_name BulletManager extends Node
 
 var bulletRessource: PackedScene
 
-const SHOOT_COOLDDOWN: float = 0.2
+const SHOOT_COOLDDOWN: float = 0.1
 var canShoot: bool = true
 
 func _init() -> void:
