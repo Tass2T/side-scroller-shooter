@@ -9,6 +9,7 @@ var id: float
 var origin: String
 var start_pos: Vector2
 var tween: Tween
+var HP: int = 50
 
 var state = States.ENTERING
 
@@ -23,6 +24,10 @@ func init(_id: float, _origin: String, _from: float, _viewport: Viewport) -> voi
 	else:
 		start_pos = Vector2(_viewport.get_visible_rect().size.x + 1, (_viewport.get_visible_rect().size.y / 100) * _from)
 	position = start_pos
+	
+func _process(delta: float) -> void:
+	if HP <= 0:
+		Exit()
 	
 	
 func _physics_process(delta: float) -> void:
@@ -45,7 +50,11 @@ func _physics_process(delta: float) -> void:
 	elif state == States.SHOOTING:
 		startShooting()
 		
-
+func get_damaged(amount: int) -> void:
+	HP -= amount
 	
 func startShooting() -> void:
 	pass
+	
+func Exit() -> void:
+	queue_free()
