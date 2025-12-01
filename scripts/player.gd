@@ -3,6 +3,9 @@ class_name Player extends CharacterBody2D
 @onready var bullet_manager: BulletManager = $BulletManager
 @onready var color_rect: ColorRect = $ColorRect
 
+func _ready() -> void:
+	bullet_manager.init(self, 0.1)
+
 
 func _physics_process(_delta: float) -> void:
 	
