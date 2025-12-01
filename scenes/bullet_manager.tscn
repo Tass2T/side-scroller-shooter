@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7aw2r60lpjsn"]
+
+[ext_resource type="Script" uid="uid://cek45hy7vhwlr" path="res://scripts/bullet_manager.gd" id="1_ek0jq"]
+
+[node name="BulletManager" type="Node"]
+script = ExtResource("1_ek0jq")
+
+[node name="ShootCooldown" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="ShootCooldown" to="." method="_on_shoot_cooldown_timeout"]
