@@ -29,7 +29,5 @@ func checkForEnemySpawn() -> void:
 		if enemy.time_stamp <= ellapsed_time:
 			var new_enemy: Enemy = enemyRessource.instantiate()
 			new_enemy.init(enemy.id, enemy.origin, enemy.from, get_viewport())
-			level_enemy_data.remove_at(0)
+			level_enemy_data.erase(enemy)
 			add_child(new_enemy)
-			
-			
