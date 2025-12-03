@@ -4,6 +4,7 @@ enum States {ENTERING, SHOOTING, LEAVING}
 
 const ENEMY_SPEED: float = 1000
 const TIMER_BEFORE_LEAVING: float = 10.0
+@onready var bullet_manager: BulletManager = $BulletManager
 
 var id: float
 var origin: String
@@ -25,7 +26,10 @@ func init(_id: float, _origin: String, _from: float, _viewport: Viewport) -> voi
 		start_pos = Vector2(_viewport.get_visible_rect().size.x + 1, (_viewport.get_visible_rect().size.y / 100) * _from)
 	position = start_pos
 	
-func _process(delta: float) -> void:
+func _ready() -> void:
+	bullet_manager.init(self)
+	
+func _process(_delta: float) -> void:
 	if HP <= 0:
 		Exit()
 	
@@ -48,13 +52,13 @@ func _physics_process(delta: float) -> void:
 				else: state = States.SHOOTING
 					
 	elif state == States.SHOOTING:
-		startShooting()
+		shoot()
 		
 func get_damaged(amount: int) -> void:
 	HP -= amount
 	
-func startShooting() -> void:
-	pass
+func shoot() -> void:
+	bullet_manager.shoot()
 	
 func Exit() -> void:
 	queue_free()

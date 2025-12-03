@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cahi1l6qnb115"]
+[gd_scene load_steps=4 format=3 uid="uid://cahi1l6qnb115"]
 
 [ext_resource type="Script" uid="uid://bryfaa67n28ff" path="res://scripts/enemy.gd" id="1_hpe7p"]
+[ext_resource type="PackedScene" uid="uid://c7aw2r60lpjsn" path="res://scenes/bullet_manager.tscn" id="2_k7o7a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpe7p"]
 size = Vector2(208.5, 198.5)
@@ -17,3 +18,5 @@ offset_left = -104.0
 offset_top = -100.0
 offset_right = 104.0
 offset_bottom = 98.0
+
+[node name="BulletManager" parent="." instance=ExtResource("2_k7o7a")]
