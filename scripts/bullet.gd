@@ -21,6 +21,7 @@ func _on_body_entered(body: Node2D) -> void:
 		
 	if origin_entity is Player && body is Enemy:
 		body.get_damaged(DAMAGES)
+		queue_free()
 	elif origin_entity is Enemy && body is Player:
 		body.is_killed()
-	queue_free()
+	
