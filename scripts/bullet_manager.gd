@@ -5,7 +5,7 @@ class_name BulletManager extends Node
 static var player: Player
 
 var bullet_ressource: PackedScene
-var origin_entity
+var origin_entity: Node2D
 var cooldown: float
 var speed: int
 
@@ -27,6 +27,7 @@ func shoot() -> void:
 	#TODO réutiliser les balles sorti, pour les perfs
 	var new_bullet: Bullet = bullet_ressource.instantiate()
 	new_bullet.speed = speed
+	new_bullet.origin_entity = origin_entity
 	if origin_entity is Player:
 		new_bullet.position = Vector2(origin_entity.position.x + 40,origin_entity.position.y) 
 		new_bullet.set_target(Vector2(get_viewport().get_visible_rect().size.x - origin_entity.position.x + 100, origin_entity.position.y))
