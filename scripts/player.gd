@@ -3,8 +3,12 @@ class_name Player extends CharacterBody2D
 @onready var bullet_manager: BulletManager = $BulletManager
 @onready var color_rect: ColorRect = $ColorRect
 
+const BULLET_SPEED: int = 10000
+
+var life_remaining: int = 3
+
 func _ready() -> void:
-	bullet_manager.init(self, 0.1)
+	bullet_manager.init(self, BULLET_SPEED, 0.1)
 
 
 func _physics_process(_delta: float) -> void:
@@ -30,3 +34,8 @@ func manage_position() -> void:
 		mouse_position.x = window_size.x - color_rect.size.x / 2
 		
 	position = mouse_position
+
+
+func is_killed() -> void:
+	pass
+	

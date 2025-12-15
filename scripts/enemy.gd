@@ -4,13 +4,14 @@ enum States {ENTERING, SHOOTING, LEAVING}
 
 const ENEMY_SPEED: float = 1000
 const TIMER_BEFORE_LEAVING: float = 10.0
+const BULLET_SPEED: int = 1000
 @onready var bullet_manager: BulletManager = $BulletManager
 
 var id: float
 var origin: String
 var start_pos: Vector2
 var tween: Tween
-var HP: int = 50
+var HP: int = 10
 
 var state = States.ENTERING
 
@@ -27,7 +28,7 @@ func init(_id: float, _origin: String, _from: float, _viewport: Viewport) -> voi
 	position = start_pos
 	
 func _ready() -> void:
-	bullet_manager.init(self)
+	bullet_manager.init(self, BULLET_SPEED)
 	
 func _process(_delta: float) -> void:
 	if HP <= 0:
