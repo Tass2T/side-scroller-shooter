@@ -18,7 +18,8 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body == origin_entity:
 		return
-	if body is Enemy:
+		
+	if origin_entity is Player && body is Enemy:
 		body.get_damaged(50)
-	elif body is Player:
+	elif origin_entity is Enemy && body is Player:
 		body.is_killed()
