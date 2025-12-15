@@ -5,6 +5,8 @@ class_name Player extends CharacterBody2D
 
 const BULLET_SPEED: int = 10000
 
+var life_remaining: int = 3
+
 func _ready() -> void:
 	bullet_manager.init(self, BULLET_SPEED, 0.1)
 
@@ -32,3 +34,8 @@ func manage_position() -> void:
 		mouse_position.x = window_size.x - color_rect.size.x / 2
 		
 	position = mouse_position
+
+
+func is_killed() -> void:
+	pass
+	

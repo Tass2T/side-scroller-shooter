@@ -11,7 +11,7 @@ var id: float
 var origin: String
 var start_pos: Vector2
 var tween: Tween
-var HP: int = 50
+var HP: int = 10
 
 var state = States.ENTERING
 
