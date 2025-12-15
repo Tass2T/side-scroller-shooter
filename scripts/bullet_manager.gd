@@ -30,7 +30,7 @@ func shoot() -> void:
 	new_bullet.origin_entity = origin_entity
 	if origin_entity is Player:
 		new_bullet.position = Vector2(origin_entity.position.x + 40,origin_entity.position.y) 
-		new_bullet.set_target(Vector2(get_viewport().get_visible_rect().size.x - origin_entity.position.x + 100, origin_entity.position.y))
+		new_bullet.set_target(Vector2(get_viewport().get_visible_rect().size.x - origin_entity.position.x + 1000000, origin_entity.position.y))
 	else:
 		new_bullet.position = Vector2(origin_entity.position.x,origin_entity.position.y) 
 		new_bullet.set_target(player.position) 
